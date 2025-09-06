@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peldóname ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("nooo.jpg") no-repeat center center/cover;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 25px;
+      padding: 30px;
+      width: 500px;       
+      height: 550px;     
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      color: #333;
+      margin: 10px 0;
+      font-size: 26px;
+    }
+    img {
+      width: 220px;  
+      height: 220px;
+      object-fit: cover; 
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      margin: 0 auto;
+    }
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 200px; 
+    }
+    button {
+      font-size: 22px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes {
+      background-color: #4caf50;
+      color: white;
+      margin-right: 20px;
+    }
+    .no {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    /* Animación */
+    .fade-in {
+      animation: fadeIn 1.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="cardContent">
+    <h1>¿Me peldonas? 😿😿</h1>
+    <img id="mainImage" src="W.jpg" alt="Triste">
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Sí</button>
+      <button class="no" onclick="moveNo()">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.querySelector(".no");
+    const img = document.getElementById("mainImage");
+    const card = document.getElementById("cardContent");
+
+   
+    const sadImages = ["images.jpeg", "W.jpg", "images.jpeg", "W.jpg"];
+
+    
+    const happyImage = "fck.png"; 
+
+    function moveNo() {
+      const container = document.querySelector(".buttons");
+      const containerWidth = container.offsetWidth - noBtn.offsetWidth;
+      const containerHeight = container.offsetHeight - noBtn.offsetHeight;
+
+     
+      const randomX = Math.floor(Math.random() * containerWidth);
+      const randomY = Math.floor(Math.random() * containerHeight);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+
+      
+      const randomImage = sadImages[Math.floor(Math.random() * sadImages.length)];
+      img.src = randomImage;
+    }
+
+    function sayYes() {
+     
+      card.innerHTML = `
+        <div class="fade-in" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%;">
+          <h1>¡Grachias por perdonarme! 🖤</h1>
+          <img src="${happyImage}" alt="Feliz" style="width:220px; height:220px; object-fit:cover; border-radius:15px;">
+          <p style="font-size:20px; color:#444; margin-top:20px; line-height:1.5;">
+            Prometo no volver a ustearte.<br>
+            I love YOU
+            
+          </p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
