@@ -66,13 +66,36 @@
       top: 50%;
       transform: translate(-50%, -50%);
     }
-    /* Animación */
+
     .fade-in {
       animation: fadeIn 1.5s ease forwards;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;       
+        height: auto;     
+        padding: 20px;
+      }
+      img {
+        width: 150px;    
+        height: 150px;
+      }
+      h1 {
+        font-size: 20px;  
+      }
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+      }
+      .buttons {
+        height: 150px; 
+      }
     }
   </style>
 </head>
@@ -91,10 +114,7 @@
     const img = document.getElementById("mainImage");
     const card = document.getElementById("cardContent");
 
-   
     const sadImages = ["images.jpeg", "W.jpg", "images.jpeg", "W.jpg"];
-
-    
     const happyImage = "fck.png"; 
 
     function moveNo() {
@@ -102,20 +122,17 @@
       const containerWidth = container.offsetWidth - noBtn.offsetWidth;
       const containerHeight = container.offsetHeight - noBtn.offsetHeight;
 
-     
       const randomX = Math.floor(Math.random() * containerWidth);
       const randomY = Math.floor(Math.random() * containerHeight);
 
       noBtn.style.left = randomX + "px";
       noBtn.style.top = randomY + "px";
 
-      
       const randomImage = sadImages[Math.floor(Math.random() * sadImages.length)];
       img.src = randomImage;
     }
 
     function sayYes() {
-     
       card.innerHTML = `
         <div class="fade-in" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%;">
           <h1>¡Grachias por perdonarme! 🖤</h1>
@@ -123,7 +140,6 @@
           <p style="font-size:20px; color:#444; margin-top:20px; line-height:1.5;">
             Prometo no volver a ustearte.<br>
             I love YOU
-            
           </p>
         </div>
       `;
